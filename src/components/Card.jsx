@@ -2,45 +2,36 @@ import React from "react";
 
 export default function Card({ item }) {
   return (
-    <div>
-      <div class="flex justify-center items-center min-h-screen">
-        <div class="max-w-[720px] mx-auto">
-          <div class="block mb-4 mx-auto border-b border-slate-300 pb-2 max-w-[360px]">
-            <a
-              target="_blank"
-              href="https://www.material-tailwind.com/docs/html/card"
-              class="block w-full px-4 py-2 text-center text-slate-700 transition-all"
-            >
-              More components on <b>Material Tailwind</b>.
-            </a>
-          </div>
-          <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-            <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
-              <img src={item.image} class="object-cover w-full h-full" />
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-2">
-                <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                  {item.title}
-                </p>
-                <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                  {item.price}
-                </p>
-              </div>
-              <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-                {item.description}
-              </p>
-            </div>
-            <div class="p-6 pt-0">
-              <button
-                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
-                type="button"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
+    <div className="max-w-sm bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+      <div className="h-64 flex items-center justify-center bg-gray-50">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="object-contain h-full p-4"
+        />
+      </div>
+
+      <div className="p-4 space-y-2">
+        <h2 className="font-semibold text-lg text-gray-800 truncate">
+          {item.title}
+        </h2>
+        <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
+
+        <div className="flex justify-between items-center mt-3">
+          <span className="text-xl font-bold text-blue-600">
+            ${item.price.toFixed(2)}
+          </span>
+          <span className="text-sm text-yellow-500 font-medium">
+            ⭐ {item.rating?.rate || "N/A"}
+          </span>
         </div>
+
+        <button
+          className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
+          type="button"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );
