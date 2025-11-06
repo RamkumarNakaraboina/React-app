@@ -9,7 +9,6 @@ export default function App() {
     <div>
       <Header />
       <Navigation />
-      <Card />
       <Footer />
     </div>
   );

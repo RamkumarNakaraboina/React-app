@@ -24,7 +24,7 @@ export default function Card({ item }) {
                   {item.title}
                 </p>
                 <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                  $95.00
+                  {item.price}
                 </p>
               </div>
               <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">

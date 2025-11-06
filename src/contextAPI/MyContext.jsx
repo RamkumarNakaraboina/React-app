@@ -1,12 +1,16 @@
 import axios from "axios";
-import React, { Children, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
+
 export const apiContext = createContext();
-export default function MyContext() {
+
+export default function MyContext({ children }) {
   const [apiData, setApiData] = useState([]);
+
   useEffect(() => {
-    axios("https://fakestoreapi.com/products/1").then((data) =>
-      setApiData(res.data)
-    );
+    axios("https://fakestoreapi.com/products")
+      .then((res) => setApiData(res.data))
+      .catch((err) => console.error("Error fetching data:", err));
   }, []);
-  return <apiContext value={apiData}>{Children}</apiContext>;
+
+  return <apiContext.Provider value={apiData}>{children}</apiContext.Provider>;
 }
