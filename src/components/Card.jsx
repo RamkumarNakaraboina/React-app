@@ -1,14 +1,16 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Card({ item }) {
   return (
     <div className="max-w-sm bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-200 hover:scale-105 hover:shadow-lg">
       <div className="h-64 flex items-center justify-center bg-gray-50">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="object-contain h-full p-4"
-        />
+        <Link to={`/product/${item.id}`}>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="object-contain h-full p-4"
+          />
+        </Link>
       </div>
 
       <div className="p-4 space-y-2">
